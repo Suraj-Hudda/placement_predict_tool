@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Placement Prediction</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <input type="number" name="iq" placeholder="iq" required>
+            <input type="float" name="cgpa" placeholder="cgpa" required>
+            <!-- Add more input fields as needed for your model -->
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction_text %}
+        <p>{{ prediction_text }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
